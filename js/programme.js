@@ -134,7 +134,15 @@
 
             $q.all([
                 $http.get('/json/others.json'),
-                $http.get('/json/talks.json')
+                /*$http(
+                    {
+                        method: 'GET',
+                        url: 'https://api.cfp.io/api/schedule',
+                        headers: {
+                            'X-Tenant-Id': 'breizhcamp'
+                        }
+                    })*/
+               $http.get('/json/talks.json')
             ]).then(function(responses) {
                 return [].concat(responses[0].data, responses[1].data);
             }).then(function(talks) {
